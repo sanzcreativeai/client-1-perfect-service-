@@ -63,7 +63,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .pl-dot.y{background:var(--yellow)}
 .pl-dot.k{background:#fff}
 .pl-brand{opacity:0;text-align:center}
-.pl-brand img{height:36px;margin:0 auto 10px;filter:brightness(0) invert(1)}
+.pl-brand img{height:36px;margin:0 auto 10px}
 .pl-brand p{font-family:var(--font-head);font-size:.7rem;letter-spacing:.25em;color:rgba(255,255,255,.5)}
 .pl-out{animation:plOut .5s ease forwards}
 @keyframes plOut{to{opacity:0;pointer-events:none;visibility:hidden}}
@@ -71,7 +71,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 /* ── NAV ── */
 #nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
 #nav.scrolled{background:rgba(23,24,28,.92);backdrop-filter:blur(12px);border-color:rgba(255,255,255,.07)}
-.nav-logo img{height:34px;filter:brightness(0) invert(1)}
+.nav-logo img{height:34px}
 .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
 .nav-links a{font-family:var(--font-head);font-size:.8rem;font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.8);transition:color .2s;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--red);transition:width .3s}
@@ -368,7 +368,7 @@ input[type="file"]{padding:.6rem 1rem;font-size:.8rem;color:rgba(255,255,255,.5)
 /* ── FOOTER ── */
 footer{background:#0d0e11;padding:4rem 5vw 2rem;border-top:1px solid rgba(255,255,255,.06)}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;margin-bottom:3rem}
-.footer-brand img{height:30px;filter:brightness(0) invert(1);margin-bottom:1rem}
+.footer-brand img{height:30px;margin-bottom:1rem}
 .footer-brand p{font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.4);max-width:280px}
 .footer-col h4{font-family:var(--font-head);font-size:.65rem;font-weight:600;letter-spacing:.2em;color:rgba(255,255,255,.35);margin-bottom:1.2rem}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:.6rem}
