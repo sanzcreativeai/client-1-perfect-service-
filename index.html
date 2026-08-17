@@ -60,20 +60,48 @@
   "serviceType":["Offset Printing","Digital Printing","Visiting Card Printing","T-Shirt Printing","Mug Printing","Wedding Card Printing","Banner Printing","Sticker Printing","Brochure Printing","Packaging Printing","Corporate Printing","Custom Printing"]
 }
 
-// FORM SUBMIT — Formspree only
-document.getElementById('qform').addEventListener('submit', function(e) {
+
+
+
+// FORM SUBMIT — AJAX to Formspree, show success on page
+document.getElementById('qform').addEventListener('submit', async function(e) {
+  e.preventDefault();
   const name = document.getElementById('fn')?.value.trim();
   const phone = document.getElementById('ph')?.value.trim();
   const svc = document.getElementById('svc')?.value.trim();
   const msg = document.getElementById('msg')?.value.trim();
   if(!name || !phone || !svc || !msg) {
-    e.preventDefault();
     alert('Please fill in: Name, Phone, Service and Requirement.');
     return;
   }
-  // Valid — let form submit naturally to Formspree
   const btn = this.querySelector('button[type="submit"]');
-  if(btn) { btn.textContent = 'SENDING...'; btn.disabled = true; }
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<span>SENDING... ⏳</span>';
+  btn.disabled = true;
+  try {
+    const data = new FormData(this);
+    data.append('name', name);
+    data.append('phone', phone);
+    data.append('service', svc);
+    data.append('message', msg);
+    data.append('_subject', 'New Quote Request – Perfect Service');
+    const res = await fetch('https://formspree.io/f/mwlerbrv', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if(res.ok) {
+      this.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+      document.getElementById('form-success').scrollIntoView({behavior:'smooth'});
+    } else {
+      throw new Error('Failed');
+    }
+  } catch(err) {
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+    alert('Something went wrong. Please call us directly at +91 99415 41766');
+  }
 });
 
 </script>
@@ -1119,9 +1147,9 @@ footer{background:#090a0d;padding:4rem 4vw 1.5rem;border-top:1px solid rgba(255,
     </div>
     <div class="rv2">
       <!-- REPLACE action="https://formspree.io/f/mwlerbrv" with your actual Formspree endpoint -->
-      <form class="qform" id="qform" action="https://formspree.io/f/mwlerbrv" method="POST">
+      <form class="qform" id="qform">
         <input type="hidden" name="_subject" value="New Printing Quote Request – Perfect Service">
-        <input type="hidden" name="_next" value="https://perfectservice.in/?success=1">
+        
         <input type="hidden" name="_subject" value="New Quote Request – Perfect Service">
         <div class="fg2">
           <div class="fg"><label for="fn">FULL NAME *</label><input type="text" id="fn" name="name" placeholder="Your name" required autocomplete="name"></div>
@@ -1166,6 +1194,17 @@ footer{background:#090a0d;padding:4rem 4vw 1.5rem;border-top:1px solid rgba(255,
           <p class="formspree-note">Your enquiry will be sent to Perfect Service. We'll respond as soon as possible.</p>
         </div>
       </form>
+
+      <!-- SUCCESS MESSAGE -->
+      <div id="form-success" style="display:none;margin-top:2rem;padding:2rem;border:1px solid rgba(37,211,102,.3);background:rgba(37,211,102,.05);text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:.8rem">✅</div>
+        <h3 style="font-family:var(--font-head);font-size:1.2rem;font-weight:700;margin-bottom:.5rem;color:#25D366">ENQUIRY SENT SUCCESSFULLY!</h3>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.7">Thank you! Perfect Service will contact you shortly on <strong>+91 99415 41766</strong>.</p>
+        <a href="https://wa.me/919941541766?text=Hello%20Perfect%20Service%2C%20I%20just%20submitted%20an%20enquiry%20on%20your%20website." target="_blank" rel="noopener" class="btn-wa" style="display:inline-flex;margin-top:1.5rem">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.855L0 24l6.335-1.521A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.924 0-3.72-.513-5.272-1.409l-.378-.225-3.922.941.982-3.826-.246-.392A9.797 9.797 0 012.182 12c0-5.413 4.405-9.818 9.818-9.818 5.413 0 9.818 4.405 9.818 9.818 0 5.413-4.405 9.818-9.818 9.818z"/></svg>
+          ALSO CHAT ON WHATSAPP
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1487,20 +1526,48 @@ window.addEventListener('scroll',()=>{
   navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});
 },{passive:true});
 
-// FORM SUBMIT — Formspree only
-document.getElementById('qform').addEventListener('submit', function(e) {
+
+
+
+// FORM SUBMIT — AJAX to Formspree, show success on page
+document.getElementById('qform').addEventListener('submit', async function(e) {
+  e.preventDefault();
   const name = document.getElementById('fn')?.value.trim();
   const phone = document.getElementById('ph')?.value.trim();
   const svc = document.getElementById('svc')?.value.trim();
   const msg = document.getElementById('msg')?.value.trim();
   if(!name || !phone || !svc || !msg) {
-    e.preventDefault();
     alert('Please fill in: Name, Phone, Service and Requirement.');
     return;
   }
-  // Valid — let form submit naturally to Formspree
   const btn = this.querySelector('button[type="submit"]');
-  if(btn) { btn.textContent = 'SENDING...'; btn.disabled = true; }
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<span>SENDING... ⏳</span>';
+  btn.disabled = true;
+  try {
+    const data = new FormData(this);
+    data.append('name', name);
+    data.append('phone', phone);
+    data.append('service', svc);
+    data.append('message', msg);
+    data.append('_subject', 'New Quote Request – Perfect Service');
+    const res = await fetch('https://formspree.io/f/mwlerbrv', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if(res.ok) {
+      this.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+      document.getElementById('form-success').scrollIntoView({behavior:'smooth'});
+    } else {
+      throw new Error('Failed');
+    }
+  } catch(err) {
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+    alert('Something went wrong. Please call us directly at +91 99415 41766');
+  }
 });
 
 </script>
