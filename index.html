@@ -11,13 +11,15 @@
 <meta name="geo.region" content="IN-TN">
 <meta name="geo.placename" content="Royapettah, Chennai">
 <link rel="canonical" href="https://perfectservice.in/">
+<meta name="google-site-verification" content="DMzQ1qcUNPMjk530X_uL_pB3XCAoiBar1H">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Perfect Service | All Kinds of Printing Works – Royapettah, Chennai">
 <meta property="og:description" content="25+ years of professional printing in Chennai. Offset, digital, t-shirt, mug, visiting cards, wedding cards, banners, packaging and all custom printing solutions.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://perfectservice.in/">
-<meta property="og:image" content="https://perfectservice.in/ps6.png">
+<meta property="og:image" content="https://perfectservice.in/favicon-circle.png">
 <meta property="og:locale" content="en_IN">
 
 <!-- Twitter Card -->
@@ -60,8 +62,8 @@
 </script>
 
 <link rel="icon" type="image/x-icon" href="./favicon.ico">
-<link rel="icon" type="image/png" href="./logo.png">
-<link rel="apple-touch-icon" href="./logo.png">
+<link rel="icon" type="image/png" href="./favicon-circle.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -104,15 +106,15 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 /* NAV */
 #nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 4vw;display:flex;align-items:center;justify-content:space-between;transition:all .4s ease;border-bottom:1px solid transparent}
 #nav.scrolled{background:rgba(15,16,20,.95);backdrop-filter:blur(16px);border-color:rgba(255,255,255,.06);padding:.9rem 4vw}
-.nav-logo img{height:30px;transition:height .3s;max-width:120px;object-fit:contain}
-#nav.scrolled .nav-logo img{height:30px}
+.nav-logo img{height:44px;width:44px;border-radius:50%;transition:all .3s;object-fit:cover;border:2px solid rgba(227,27,35,.3)}
+#nav.scrolled .nav-logo img{height:38px;width:38px}
 .nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
 .nav-links a{font-family:var(--font-head);font-size:.78rem;font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.75);transition:color .2s;position:relative;padding-bottom:2px}
 .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--red);transition:width .3s}
 .nav-links a:hover,.nav-links a.active{color:#fff}
 .nav-links a:hover::after,.nav-links a.active::after{width:100%}
 .nav-right{display:flex;align-items:center;gap:1rem}
-.nav-phone{font-size:.75rem;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:.4rem}
+.nav-phone{font-size:.78rem;color:#fff;display:flex;align-items:center;gap:.5rem;font-family:var(--font-head);font-weight:700;letter-spacing:.05em;background:rgba(227,27,35,.12);border:1px solid rgba(227,27,35,.3);padding:.4rem .9rem}
 .nav-cta{font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:.12em;padding:.6rem 1.4rem;background:var(--red);color:#fff;border:2px solid var(--red);transition:all .25s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
 .nav-cta:hover{background:transparent;color:var(--red)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem}
@@ -153,8 +155,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .h-cmyk-row{position:absolute;top:1.5rem;right:2rem;display:flex;gap:7px}
 .h-cmyk-dot{width:9px;height:9px;border-radius:50%;opacity:.5}
 
-.hero-content{position:relative;z-index:2;padding:0 4vw;max-width:800px}
-.hero-eyebrow{font-family:var(--font-head);font-size:.68rem;font-weight:600;letter-spacing:.35em;color:var(--red);margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem;opacity:0;transform:translateY(12px)}
+.hero-content{position:relative;z-index:2;padding:120px 4vw 0;max-width:800px}
+.hero-eyebrow{font-family:var(--font-head);font-size:.65rem;font-weight:600;letter-spacing:.3em;color:var(--red);margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem;opacity:0;transform:translateY(12px);position:relative;z-index:3}
 .hero-eyebrow.anim{animation:fadeUp .7s ease .3s forwards}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--red)}
 .hero-title{font-family:var(--font-head);font-size:clamp(3.2rem,8vw,7rem);font-weight:700;line-height:.95;letter-spacing:-.03em;margin-bottom:1.8rem}
@@ -475,10 +477,162 @@ footer{background:#090a0d;padding:4rem 4vw 1.5rem;border-top:1px solid rgba(255,
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+
+/* ═══════════════════════════════
+   PREMIUM MOTION GRAPHICS
+═══════════════════════════════ */
+
+/* MAGNETIC BUTTON EFFECT */
+.btn-red,.btn-outline,.btn-white,.btn-wa,.nav-cta{
+  transition:all .3s cubic-bezier(.23,1,.32,1);
+  position:relative;overflow:hidden;
+}
+.btn-red::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.15) 0%,transparent 50%);
+  opacity:0;transition:opacity .3s;
+}
+.btn-red:hover::after{opacity:1}
+
+/* RIPPLE EFFECT */
+.ripple{
+  position:absolute;border-radius:50%;
+  background:rgba(255,255,255,.3);
+  transform:scale(0);animation:rippleAnim .6s linear;
+  pointer-events:none;
+}
+@keyframes rippleAnim{to{transform:scale(4);opacity:0}}
+
+/* FLOATING PARTICLES */
+#particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.particle{
+  position:absolute;border-radius:50%;
+  animation:floatParticle linear infinite;
+  opacity:0;
+}
+@keyframes floatParticle{
+  0%{transform:translateY(100vh) scale(0);opacity:0}
+  10%{opacity:.6}
+  90%{opacity:.3}
+  100%{transform:translateY(-100px) scale(1);opacity:0}
+}
+
+/* PRINTING INK DROPS */
+.ink-drop{
+  position:absolute;border-radius:50%;
+  animation:inkDrop 3s ease-out infinite;
+  pointer-events:none;
+}
+@keyframes inkDrop{
+  0%{transform:scale(0);opacity:.8}
+  100%{transform:scale(3);opacity:0}
+}
+
+/* NAV CTA PULSE */
+.nav-cta{animation:navPulse 3s ease infinite}
+@keyframes navPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(227,27,35,.4)}
+  50%{box-shadow:0 0 0 8px rgba(227,27,35,0)}
+}
+.nav-cta:hover{animation:none;transform:translateY(-2px);box-shadow:0 8px 24px rgba(227,27,35,.4)}
+
+/* HERO TITLE GLITCH ON HOVER */
+.hero-title:hover .red{
+  animation:glitchText .3s ease;
+}
+@keyframes glitchText{
+  0%,100%{text-shadow:none}
+  25%{text-shadow:-2px 0 var(--cyan),2px 0 var(--magenta)}
+  75%{text-shadow:2px 0 var(--cyan),-2px 0 var(--magenta)}
+}
+
+/* SECTION TITLE UNDERLINE ANIMATION */
+.sec-title{position:relative;display:inline-block}
+.sec-title::after{
+  content:'';position:absolute;bottom:-6px;left:0;
+  width:0;height:2px;background:var(--red);
+  transition:width 1s ease;
+}
+.rv.on .sec-title::after,.rv2.on .sec-title::after{width:60px}
+
+/* CARD HOVER LIFT */
+.svc-card{transition:transform .4s cubic-bezier(.23,1,.32,1),box-shadow .4s ease}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+
+/* WHY CARD BORDER GLOW */
+.why-card{transition:all .35s ease;position:relative}
+.why-card::before{
+  content:'';position:absolute;inset:0;
+  border:1px solid transparent;
+  background:linear-gradient(135deg,rgba(227,27,35,.2),transparent) border-box;
+  -webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);
+  mask:linear-replace(#fff 0 0) padding-box,linear-gradient(#fff 0 0);
+  opacity:0;transition:opacity .3s;
+}
+.why-card:hover::before{opacity:1}
+
+/* COUNTER ANIMATION ENHANCEMENT */
+.stat-num{
+  background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,.7) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.stat-num .accent{
+  background:linear-gradient(135deg,var(--red),#ff4444);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* FLOATING WA PULSE */
+.fwa-btn{animation:waPulse 2.5s ease infinite}
+@keyframes waPulse{
+  0%,100%{box-shadow:0 4px 24px rgba(37,211,102,.25)}
+  50%{box-shadow:0 4px 32px rgba(37,211,102,.5),0 0 0 8px rgba(37,211,102,.1)}
+}
+.fwa-btn:hover{animation:none}
+
+/* RED LINE TRAVEL ANIMATION */
+.red-travel{
+  position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,transparent,var(--red),transparent);
+  animation:travelDown 3s ease infinite;
+}
+@keyframes travelDown{
+  0%{top:-100%;bottom:100%}
+  50%{top:0%;bottom:0%}
+  100%{top:100%;bottom:-100%}
+}
+
+/* CMYK SPIN ANIMATION */
+.h-reg svg{animation:slowSpin 20s linear infinite}
+
+/* SCROLL PROGRESS BAR */
+#scroll-progress{
+  position:fixed;top:0;left:0;height:2px;
+  background:linear-gradient(to right,var(--cyan),var(--magenta),var(--yellow),var(--red));
+  z-index:9999;width:0%;transition:width .1s linear;
+}
+
+/* MOBILE IMPROVEMENTS */
+@media(max-width:768px){
+  .hero-content{padding:100px 1.2rem 0}
+  .hero-eyebrow{font-size:.55rem;letter-spacing:.2em;flex-wrap:wrap}
+  .hero-title{font-size:clamp(2.4rem,9vw,3.5rem);line-height:.95}
+  #nav{padding:.8rem 1.2rem}
+  .nav-cta{display:none}
+  .nav-right{gap:.6rem}
+  .nav-phone{display:none}
+}
+@media(max-width:480px){
+  .hero-content{padding:90px 1rem 0}
+  .hero-eyebrow{font-size:.5rem;letter-spacing:.15em}
+}
+
 </style>
 </head>
 <body>
 
+<div id="scroll-progress"></div>
 <!-- PRELOADER -->
 <div id="preloader">
   <div class="pl-cmyk">
@@ -496,7 +650,7 @@ footer{background:#090a0d;padding:4rem 4vw 1.5rem;border-top:1px solid rgba(255,
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#hero" class="nav-logo"><img src="./logo.png" alt="Perfect Service – Printing Shop Chennai" width="140" height="24"></a>
+  <a href="#hero" class="nav-logo"><img src="./favicon-circle.png" alt="Perfect Service – Printing Shop Chennai" width="44" height="44"></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -532,6 +686,7 @@ footer{background:#090a0d;padding:4rem 4vw 1.5rem;border-top:1px solid rgba(255,
 
 <!-- HERO -->
 <section id="hero" aria-label="Hero">
+  <div id="particles"></div>
   <div class="hero-video-wrap">
     <video class="hero-video" autoplay muted loop playsinline preload="none" poster="./ps6.png" aria-hidden="true">
       <source src="./hero.mp4" type="video/mp4">
@@ -1026,7 +1181,7 @@ footer{background:#090a0d;padding:4rem 4vw 1.5rem;border-top:1px solid rgba(255,
 <footer>
   <div class="footer-top">
     <div class="footer-logo">
-      <img src="./logo.png" alt="Perfect Service" loading="lazy">
+      <img src="./favicon-circle.png" alt="Perfect Service" loading="lazy">
       <p>All Kinds of Printing Works<br>25+ Years of Printing Excellence in Royapettah, Chennai.</p>
       <div class="footer-cmyk">
         <span style="background:var(--cyan)"></span><span style="background:var(--magenta)"></span>
@@ -1192,6 +1347,121 @@ document.getElementById('qform').addEventListener('submit',function(e){
     const txt=`Hello Perfect Service,\n\nI would like to enquire about your printing services.\n\n*Name:* ${name}\n*Phone:* ${phone}${wa?'\n*WhatsApp:* '+wa:''}${email?'\n*Email:* '+email:''}\n\n*Service:* ${svc}${qty?'\n*Quantity:* '+qty:''}${sz?'\n*Size:* '+sz:''}${dt?'\n*Required By:* '+dt:''}\n\n*Requirement:*\n${msg}\n\nPlease share a quote. Thank you.`;
     window.open('https://wa.me/919941541766?text='+encodeURIComponent(txt),'_blank');
   }
+});
+
+
+// ── SCROLL PROGRESS BAR ──
+const scrollProg = document.getElementById('scroll-progress');
+window.addEventListener('scroll',()=>{
+  const h = document.documentElement;
+  const pct = (scrollY/(h.scrollHeight-h.clientHeight))*100;
+  if(scrollProg) scrollProg.style.width = pct+'%';
+},{passive:true});
+
+// ── FLOATING PARTICLES ──
+(function(){
+  const container = document.getElementById('particles');
+  if(!container) return;
+  const colors = ['#00AEEF','#EC008C','#FFF200','#E31B23','rgba(255,255,255,.3)'];
+  const count = window.innerWidth < 768 ? 8 : 18;
+  for(let i=0;i<count;i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random()*4+2;
+    p.style.cssText = `
+      width:${size}px;height:${size}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      left:${Math.random()*100}%;
+      animation-duration:${Math.random()*10+8}s;
+      animation-delay:${Math.random()*8}s;
+    `;
+    container.appendChild(p);
+  }
+})();
+
+// ── RIPPLE EFFECT ON BUTTONS ──
+document.querySelectorAll('.btn-red,.btn-outline,.btn-white,.btn-wa,.nav-cta').forEach(btn=>{
+  btn.addEventListener('click',function(e){
+    const r = document.createElement('span');
+    r.className='ripple';
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width,rect.height);
+    r.style.cssText=`width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+    this.appendChild(r);
+    setTimeout(()=>r.remove(),600);
+  });
+});
+
+// ── MAGNETIC BUTTON EFFECT (desktop only) ──
+if(window.innerWidth > 768){
+  document.querySelectorAll('.btn-red,.nav-cta').forEach(btn=>{
+    btn.addEventListener('mousemove',function(e){
+      const rect=this.getBoundingClientRect();
+      const x=(e.clientX-rect.left-rect.width/2)*.15;
+      const y=(e.clientY-rect.top-rect.height/2)*.15;
+      this.style.transform=`translate(${x}px,${y}px)`;
+    });
+    btn.addEventListener('mouseleave',function(){
+      this.style.transform='';
+    });
+  });
+}
+
+// ── CURSOR GLOW (desktop) ──
+if(window.innerWidth > 768){
+  const glow = document.createElement('div');
+  glow.style.cssText='position:fixed;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(227,27,35,.06) 0%,transparent 70%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:left .15s ease,top .15s ease';
+  document.body.appendChild(glow);
+  document.addEventListener('mousemove',e=>{
+    glow.style.left=e.clientX+'px';
+    glow.style.top=e.clientY+'px';
+  });
+}
+
+// ── STAGGER REVEAL FOR LISTS ──
+const listObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const items = e.target.querySelectorAll('li,.why-card,.proc-step,.cap-item,.ind-tag');
+      items.forEach((item,i)=>{
+        setTimeout(()=>{
+          item.style.transition='opacity .5s ease, transform .5s ease';
+          item.style.opacity='1';
+          item.style.transform='none';
+        },i*60);
+      });
+      listObs.unobserve(e.target);
+    }
+  });
+},{threshold:.1});
+
+document.querySelectorAll('.ap-list,.why-grid,.cap-grid,.ind-tags,.process-grid').forEach(el=>{
+  el.querySelectorAll('li,.why-card,.cap-item,.ind-tag,.proc-step').forEach(item=>{
+    item.style.opacity='0';
+    item.style.transform='translateY(20px)';
+  });
+  listObs.observe(el);
+});
+
+// ── HERO TITLE TYPEWRITER CURSOR ──
+const heroSub = document.querySelector('.hero-sub');
+if(heroSub){
+  heroSub.style.borderRight='2px solid transparent';
+}
+
+// ── SECTION NUMBER COUNTER ENHANCEMENT ──
+document.querySelectorAll('.about-stat-n').forEach(el=>{
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        el.style.transition='transform .5s cubic-bezier(.34,1.56,.64,1)';
+        el.style.transform='scale(1.1)';
+        setTimeout(()=>el.style.transform='scale(1)',300);
+        obs.unobserve(el);
+      }
+    });
+  },{threshold:.5});
+  obs.observe(el);
 });
 
 // SMOOTH SCROLL
