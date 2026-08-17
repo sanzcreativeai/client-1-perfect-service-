@@ -59,6 +59,23 @@
   "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"20:00"}],
   "serviceType":["Offset Printing","Digital Printing","Visiting Card Printing","T-Shirt Printing","Mug Printing","Wedding Card Printing","Banner Printing","Sticker Printing","Brochure Printing","Packaging Printing","Corporate Printing","Custom Printing"]
 }
+
+// FORM SUBMIT — Formspree only
+document.getElementById('qform').addEventListener('submit', function(e) {
+  const name = document.getElementById('fn')?.value.trim();
+  const phone = document.getElementById('ph')?.value.trim();
+  const svc = document.getElementById('svc')?.value.trim();
+  const msg = document.getElementById('msg')?.value.trim();
+  if(!name || !phone || !svc || !msg) {
+    e.preventDefault();
+    alert('Please fill in: Name, Phone, Service and Requirement.');
+    return;
+  }
+  // Valid — let form submit naturally to Formspree
+  const btn = this.querySelector('button[type="submit"]');
+  if(btn) { btn.textContent = 'SENDING...'; btn.disabled = true; }
+});
+
 </script>
 
 <link rel="icon" type="image/x-icon" href="./favicon.ico">
@@ -106,8 +123,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 /* NAV */
 #nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 4vw;display:flex;align-items:center;justify-content:space-between;transition:all .4s ease;border-bottom:1px solid transparent}
 #nav.scrolled{background:rgba(15,16,20,.95);backdrop-filter:blur(16px);border-color:rgba(255,255,255,.06);padding:.9rem 4vw}
-.nav-logo img{height:44px;width:44px;border-radius:50%;transition:all .3s;object-fit:cover;border:2px solid rgba(227,27,35,.3)}
-#nav.scrolled .nav-logo img{height:38px;width:38px}
+.nav-logo img{height:52px;width:52px;border-radius:50%;transition:all .3s;object-fit:cover;border:2px solid rgba(227,27,35,.4);box-shadow:0 0 12px rgba(227,27,35,.2)}
+#nav.scrolled .nav-logo img{height:46px;width:46px}
 .nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
 .nav-links a{font-family:var(--font-head);font-size:.78rem;font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.75);transition:color .2s;position:relative;padding-bottom:2px}
 .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--red);transition:width .3s}
@@ -1336,18 +1353,7 @@ document.querySelectorAll('.faq-q').forEach(q=>{
   });
 });
 
-// FORM SUBMIT — WhatsApp fallback until Formspree is set
-document.getElementById('qform').addEventListener('submit',function(e){
-  const action = this.getAttribute('action');
-  if(!action || action === 'https://formspree.io/f/mwlerbrv'){
-    e.preventDefault();
-    const g = id => document.getElementById(id)?.value.trim()||'';
-    const name=g('fn'),phone=g('ph'),wa=g('wa'),email=g('em'),svc=g('svc'),qty=g('qty'),sz=g('sz'),dt=g('dt'),msg=g('msg');
-    if(!name||!phone||!svc||!msg){alert('Please fill in the required fields: Name, Phone, Service and Requirement.');return;}
-    const txt=`Hello Perfect Service,\n\nI would like to enquire about your printing services.\n\n*Name:* ${name}\n*Phone:* ${phone}${wa?'\n*WhatsApp:* '+wa:''}${email?'\n*Email:* '+email:''}\n\n*Service:* ${svc}${qty?'\n*Quantity:* '+qty:''}${sz?'\n*Size:* '+sz:''}${dt?'\n*Required By:* '+dt:''}\n\n*Requirement:*\n${msg}\n\nPlease share a quote. Thank you.`;
-    window.open('https://wa.me/919941541766?text='+encodeURIComponent(txt),'_blank');
-  }
-});
+
 
 
 // ── SCROLL PROGRESS BAR ──
@@ -1480,6 +1486,23 @@ window.addEventListener('scroll',()=>{
   sections.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id;});
   navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});
 },{passive:true});
+
+// FORM SUBMIT — Formspree only
+document.getElementById('qform').addEventListener('submit', function(e) {
+  const name = document.getElementById('fn')?.value.trim();
+  const phone = document.getElementById('ph')?.value.trim();
+  const svc = document.getElementById('svc')?.value.trim();
+  const msg = document.getElementById('msg')?.value.trim();
+  if(!name || !phone || !svc || !msg) {
+    e.preventDefault();
+    alert('Please fill in: Name, Phone, Service and Requirement.');
+    return;
+  }
+  // Valid — let form submit naturally to Formspree
+  const btn = this.querySelector('button[type="submit"]');
+  if(btn) { btn.textContent = 'SENDING...'; btn.disabled = true; }
+});
+
 </script>
 </body>
 </html>
