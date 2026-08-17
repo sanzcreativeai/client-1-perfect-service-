@@ -943,8 +943,8 @@ footer{background:#090a0d;padding:4rem 4vw 1.5rem;border-top:1px solid rgba(255,
       </div>
     </div>
     <div class="rv2">
-      <!-- REPLACE action="YOUR_FORMSPREE_URL" with your actual Formspree endpoint -->
-      <form class="qform" id="qform" action="YOUR_FORMSPREE_URL" method="POST">
+      <!-- REPLACE action="https://formspree.io/f/mwlerbrv" with your actual Formspree endpoint -->
+      <form class="qform" id="qform" action="https://formspree.io/f/mwlerbrv" method="POST">
         <input type="hidden" name="_subject" value="New Printing Quote Request – Perfect Service">
         <input type="hidden" name="_next" value="https://perfectservice.in/#quote-form">
         <div class="fg2">
@@ -1180,7 +1180,7 @@ document.querySelectorAll('.faq-q').forEach(q=>{
 // FORM SUBMIT — WhatsApp fallback until Formspree is set
 document.getElementById('qform').addEventListener('submit',function(e){
   const action = this.getAttribute('action');
-  if(!action || action === 'YOUR_FORMSPREE_URL'){
+  if(!action || action === 'https://formspree.io/f/mwlerbrv'){
     e.preventDefault();
     const g = id => document.getElementById(id)?.value.trim()||'';
     const name=g('fn'),phone=g('ph'),wa=g('wa'),email=g('em'),svc=g('svc'),qty=g('qty'),sz=g('sz'),dt=g('dt'),msg=g('msg');
